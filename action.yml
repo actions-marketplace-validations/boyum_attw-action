@@ -22,10 +22,10 @@ runs:
 
   steps:
     - name: Install Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v6
       with:
-        node-version: 20
+        node-version: 22
 
     - name: Check if the Types Are Wrong
       shell: bash
-      run: npx -p @arethetypeswrong/cli attw --pack ${{ inputs.working-directory }} ${{ inputs.block-esm != 'true' && '--ignore-rules cjs-resolves-to-esm' || '' }}
+      run: npx -p @arethetypeswrong/cli@0.18 attw --pack ${{ inputs.working-directory }} ${{ inputs.block-esm != 'true' && '--ignore-rules cjs-resolves-to-esm' || '' }}
